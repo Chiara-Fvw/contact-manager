@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact Manager</title>
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/handlebars.js"></script>
+  <script type="module" src="/javascripts/main.js"></script>
+  <link rel="stylesheet" href="/stylesheets/whitespaceReset.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Manager</h1>
+  </header>
+  <main>
+    <div class="controls">
+      <button id="new-contact-btn" class="control-btn">ADD CONTACT</button>
+      <button id="new-tag-btn" class="control-btn">ADD TAG</button>
+      <select name="filterTag" id="filterTag"></select>
+      <input type="text" id="search-bar" placeholder="Search contacts..." />
+      <button id="reset-search" class="control-btn">RESET</button>
+    </div>
+    <p id="text-message"></p>
+    <section id="contacts-section" class="contacts-container"></section>
+    <script id="contacts" type="text/x-handlebars-template">
+      {{#if contacts}} 
+        {{#each contacts}}
+          {{> card}}
+        {{/each}}
+      {{else}}
+        <p class="no-contacts">There are no contacts yet.</p>
+      {{/if}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="card">
+      <div class="card">
+        <h3>{{full_name}}</h3>
+        <p>Email: {{email}}</p>
+        <p>Phone: {{phone_number}}</p>
+        {{#if tags}}
+          <p>Tags: 
+            {{#each tags}}
+            <a class="tag">{{this}}</a>
+            {{/each}}
+          </p>
+          {{else}}
+          <br>
+        {{/if}}
+        <div class="card-buttons">
+          <button class="btn edit-btn" data-id="{{id}}">EDIT</button>
+          <button class="btn delete-btn" data-id="{{id}}">DELETE</button>
+        </div>
+      </div>
+    </script>
+
+    <section id="form-container" class="hidden">
+      <h2 id="form-type"></h2>
+      <form id="contact-form" novalidate>
+        <label for="full_name">Name:</label><span class="form-error"></span>
+        <input type="text" id="full_name" name="full_name" required/>
+    
+        <label for="email">Email:</label><span class="form-error"></span>
+        <input type="text" id="email" name="email" required/>
+    
+        <label for="phone_number">Phone Number:</label><span class="form-error"></span>
+        <input type="text" id="phone_number" name="phone_number" required />
+
+        <label for="tags">Tags:</label>
+        <select id="tags" name="tags" multiple></select>
+    
+        <div class="form-actions">
+          <input type="submit" value="Save" />
+          <button type="button" id="exit-form" class="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <article id="createTag" class="hidden">
+      <form id="tag-form">
+        <label for="tagName">New tag:</label>
+        <input type="text" id="tagName" name="tagName">
+        <div class="form-actions">
+          <input type="submit" value="Save" />
+          <button type="button" id="exit-tag" class="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </article>
+
+    <section id="prompt-layer" class="hidden"></section>
+    <div id="prompt" class="hidden">
+      <p>The contact will be deleted permanently.</p>
+      <button id="deleteBtn" class="btn edit-btn">CONFIRM</button>
+      <button id="exitPrompt" class="btn delete-btn">CANCEL</button>
+    </div>
+    
+  </main>
+</body>
+</html>

@@ -1,0 +1,360 @@
+/* General Styles */
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: white;
+  color: black;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #CDC1FF;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Main Content */
+main {
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#text-message {
+  text-align: center;
+  color: #CDC1FF;
+  font-size: 1.5rem;
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.control-btn {
+  background-color: #CDC1FF; 
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.control-btn:hover {
+  background-color: #D2C7FF; 
+  transform: translateY(-3px);
+}
+
+#search-bar {
+  flex-grow: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid #FDDBBB;
+  outline: none;
+  background-color: white;
+}
+
+/* Styling the select in controls */
+#filterTag {
+  border-bottom: 2px solid #FDDBBB;
+  padding: 16px 24px;
+  background: none;
+}
+
+#reset-search {
+  background-color: #FDDBBB;
+}
+
+#reset-search:hover {
+  background-color: #FDDEC1;
+}
+
+/* Cards Section */
+.contacts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-bottom: 2px solid #CDC1FF;
+  flex-basis: calc(33.333% - 1.5rem); /* 3 cards per row */
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card p {
+  margin-bottom: 1rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Card Buttons */
+.card-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.8rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Edit Button */
+.edit-btn {
+  background-color: #BFD8AF;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #99BC85;
+  transform: translateY(-3px);
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #EF9F9F;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #F47C7C;
+  transform: translateY(-3px);
+}
+
+/* Tags */
+.card a {
+  text-decoration: none;
+  color: #BDB3E5; 
+  background-color: #F5ECF9; 
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card a:hover {
+  background-color: #CDC1FF;
+  color: white;
+}
+
+/* No Contacts Message */
+.no-contacts {
+  text-align: center;
+  color: #CDC1FF;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Form Styles */
+#form-type {
+  text-align: center;
+  color: #CDC1FF;
+  font-size: 1.5rem;
+}
+
+form {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 2rem auto;
+  width: 50%;
+  max-width: 500px;
+  min-width: 300px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 2px solid #CDC1FF;
+  border-radius: 5px;
+  outline: none;
+  background-color: white;
+}
+
+form input:focus {
+  border-bottom-color: #CDC1FF;
+}
+
+select {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Quicksand', sans-serif;
+  color: #333;
+  font-size: 16px;
+}
+
+.form-error {
+  font-size: 0.9rem;
+  color: #f44336;
+}
+
+/* Styling the multiple select inside the form */
+#tags {
+  width: 200px; 
+  padding: 5px;
+  border: 2px solid #CDC1FF;
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#tags option {
+  padding: 5px;
+}
+
+#tags option:focus {
+  background-color: #BFD8AF;
+  color: white;
+}
+
+/* Submit and Cancel Buttons */
+input[type="submit"],
+.cancel-btn {
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 120px;
+  text-align: center;
+}
+
+input[type="submit"] {
+  background-color: #BFD8AF;
+}
+
+input[type="submit"]:hover {
+  background-color: #99BC85;
+  transform: translateY(-2px);
+}
+
+.cancel-btn {
+  background-color: #EF9F9F;
+}
+
+.cancel-btn:hover {
+  background-color: #F47C7C;
+  transform: translateY(-2px);
+}
+
+/* Prompt */
+#prompt-layer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: rgba(193, 179, 254, 0.46);
+}
+
+#prompt {
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 350px;
+  height: 100px;
+  padding: 50px;
+  text-align: center;
+  z-index: 3;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; 
+}
+
+#prompt .btn {
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #new-contact-btn {
+    width: 100%;
+  }
+
+  #search-bar {
+    width: 100%;
+  }
+
+  .contacts-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    flex-basis: 100%; 
+  }
+
+  form {
+    width: 80%;
+  }
+}
