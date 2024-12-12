@@ -23,7 +23,10 @@
       <input type="text" id="search-bar" placeholder="Search contacts..." />
       <button id="reset-search" class="control-btn">RESET</button>
     </div>
-    <p id="text-message"></p>
+    <section id="message-container" class="hidden"> 
+      <p id="text-message"></p>
+    </section>
+   
     <section id="contacts-section" class="contacts-container"></section>
     <script id="contacts" type="text/x-handlebars-template">
       {{#if contacts}} 

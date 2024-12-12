@@ -9,6 +9,7 @@ export class UserInterface {
     this.tagFormCnt = document.getElementById('createTag');
     this.promptLayer = document.getElementById('prompt-layer');
     this.prompt = document.getElementById('prompt');
+    this.messageCnt = document.getElementById('message-container');
   }
 
   renderContacts(contacts) {
@@ -123,6 +124,14 @@ export class UserInterface {
   }
 
   displayMessage(message) {
+    this.messageCnt.classList.remove('hidden');
+    this.contactCnt.classList.add('hidden');
     document.getElementById('text-message').textContent = message;
+  }
+
+  hideMessage() {
+    this.messageCnt.classList.add('hidden');
+    this.contactCnt.classList.remove('hidden');
+    document.getElementById('text-message').textContent = '';
   }
 }

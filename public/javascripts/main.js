@@ -130,7 +130,7 @@ class ContactManager {
   async manageContactDeletion() {
     let contactRemoved = await this.dataHandler.deleteContact(this.currentId);
     if (contactRemoved) {
-      const idx = this.contacts.findIndex(contact => contact.id === this.currentId);
+      const idx = this.contacts.findIndex(contact => contact.id === +this.currentId);
       this.contacts.splice(idx, 1);
       this.ui.renderContacts(this.contacts);
       this.currentId = null;
@@ -160,7 +160,7 @@ class ContactManager {
     if (filteredContacts.length === 0) {
       this.ui.displayMessage('There are no results for this search.');
     } else {
-      this.ui.displayMessage('');
+      this.ui.hideMessage('');
       this.ui.renderContacts(filteredContacts);
     }
   }
@@ -178,6 +178,7 @@ class ContactManager {
   }
 
   clearSearch() {
+    this.ui.hideMessage();
     this.ui.renderContacts(this.contacts);
     this.filterTag.value = 'all';
     this.searchBar.value = '';
